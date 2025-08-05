@@ -113,3 +113,48 @@ function responsive() {
 
 window.addEventListener("resize", responsive)
 
+const slidingImageContainer = document.querySelector("#sliding-images")
+
+/**
+ * Contains the sliding image path
+ */
+const images = [
+    "./assets/images/homepage/yenbai.jpg",
+    "./assets/images/homepage/coloa2.jpg",
+    "./assets/images/homepage/the-nelson.jpg",
+    "./assets/images/homepage/danphuong.jpg",
+    "./assets/images/homepage/smartcity.jpg",
+    "./assets/images/homepage/coloa.jpg"
+]
+
+function addSlidingImages(img){
+    
+    const imageContainer = `
+            <div class="tw-min-w-[350px] tw-w-[350px] tw-h-[350px] 
+                        tw-overflow-clip tw-bg-black sliding-image">
+                <img src="${img}" 
+                        alt="" class="tw-object-cover tw-w-full tw-h-full">
+            </div>
+    `
+
+    slidingImageContainer.innerHTML += imageContainer
+
+}
+
+
+images.forEach( img => addSlidingImages(img))
+images.forEach( img => addSlidingImages(img))
+
+
+const sliding = gsap.to(slidingImageContainer, {
+    x: '-50%', // Adjust based on your actual element width to ensure it scrolls out of view
+    ease: "none",
+    duration: 80, // Initial duration in seconds
+    repeat: -1, // Infinite loop
+})
+
+
+  // Event listeners for mouse hover
+slidingImageContainer.addEventListener('mouseenter', () => sliding.timeScale(0.5)) // Slow down on hover
+slidingImageContainer.addEventListener('mouseleave', () => sliding.timeScale(1)) // Return to original speed
+

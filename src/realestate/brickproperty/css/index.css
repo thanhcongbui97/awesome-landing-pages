@@ -118,6 +118,30 @@ q::after {
 
 }
 
+.cursive-text {
+    font-family: 'Dancing Script', cursive;
+}
+
+.sliding-image-container {
+    position: relative;
+    width: max-content;
+    overflow-x: hidden; /* Prevents horizontal scrollbar */
+    /* animation: slideLeft 80s linear infinite; 
+    transition: all 0.5s ease; */
+}
+
+
+.sliding-image {
+    flex-shrink: 0;
+    position: relative;
+}
+
+.sliding-image-gradient{
+    pointer-events: none;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, #000000 0%, #ffffff00 15%, #00000009 80%, #000000 100%);
+}
+
 .input, .input-light{
     padding: 10px 15px;
     outline: none;
